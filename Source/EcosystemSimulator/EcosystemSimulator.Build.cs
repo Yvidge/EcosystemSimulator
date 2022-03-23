@@ -9,7 +9,7 @@ public class EcosystemSimulator : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "GameplayAbilities", "GameplayTags", "GameplayTasks" });
-        //PublicIncludePaths.AddRange(new string[] { "" });
+        PublicIncludePaths.AddRange(new string[] { "EcosystemSimulator" });
 		PrivateDependencyModuleNames.AddRange(new string[] { "BlueprintMapUtilities" });
 
 		// Uncomment if you are using Slate UI
