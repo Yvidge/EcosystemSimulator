@@ -26,6 +26,10 @@
 		{
 			"Name": "BlueprintMapUtilities",
 			"Enabled": true
+		},
+		{
+			"Name": "Volumetrics",
+			"Enabled": true
 		}
 	]
 }
