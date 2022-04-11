@@ -35,6 +35,7 @@
 
 # About
 This is a small project about animals and AI programming.
+![Screenshot_6](https://user-images.githubusercontent.com/64382796/162788407-358ce1c9-96e1-4045-806e-d88afb96c886.png)
 
 
 # Target
@@ -56,7 +57,6 @@ In the ideal case, the user will be able to create any animal that they want. Ho
 Unreal Engine 4 is used. Most of the code is written with Blueprints because of fast development and low iteration time. Behavior trees are used to create AI which is common in GameDev and the Environment Query System is used for decision making in complicated cases. Also Animation blueprints and blendspaces are used for animal animation. 
 # Design patterns
 First of all, all parts of the behavior system must be as flexible as possible. Secondly, the parts must be independent, so arbitrary sets of behavior can be used. Consequently, the main idea is to use blueprint actor components to create divided and flexible logic, and build animals using these components. For flexibility in Behavior Trees, I drive a few main behavior lines which are common for most animals, and add concrete implementations through dynamic subtrees. (Link to AI part)
-
 
 # Blueprint components
 The idea is to create components for each entity’s capability. 
@@ -94,7 +94,7 @@ Interacts with `WorldStatisticsSubsystem` which is used to count entities. UI ge
 Another important part of the AI system is Perception. Perception is implemented by `AIPerceptionComponent`, which can be added to `AIController`s and belongs to Unreal’s default and out of the box working solution for AI. 
 
 # Parts of BT
-
+![Screenshot_1](https://user-images.githubusercontent.com/64382796/162781121-a72f1f23-78b4-4717-9bcc-761144195fc5.png)
 ### Danger perception
 The main part of this sub behavior is `CalculateDangerLevel` service. It is constantly executed, calculating the danger level. Danger level is based on animal relative sizes and diets. Two different behaviors are executed based on this value. Each Decorator is working in abort self mode, which allows the pawn to switch them easily while driving one of them. Location to run is generated via `Environment Query System (EQS)`. `Query` generating points in the world, then scoring them based on known enemies’ locations, their rotations, etc. Then, the calculated location is used in `MoveTo` task. To solve the problem, when an animal stops to think about the next run location while predators are near, BT Service is used. Service calculating new location every few seconds and updating TargetLocation. This ensures a continuous and responsive movement of animals.
 
@@ -134,8 +134,9 @@ To correctly implement flock mechanics small modification of all behavior trees 
 
 # UI
 I might not be the best UI designer, however, I do enjoy UI programming.
-Because of quite complicated behaviors advanced UI is needed.
+Because of quite complicated behaviors advanced UI is needed.  
 
+![Screenshot_8](https://user-images.githubusercontent.com/64382796/162791154-54698288-c797-4579-9612-83781e2c8f50.png)
 ## Animal hint and UI components
 Information about an animal and its inner state is the most important part of UI. The main Idea is to create a panel widget that procedurally fills itself depending on components of a given entity. To fulfill this task, I created `Blueprint Interface` that returns UI widget class and priority in the widget panel. Each component that needs to be presented in the UI has its own widget class reference. The widget classes have the same interface, which receives references to target pawns, then implements individual data bindings. Example:
 
