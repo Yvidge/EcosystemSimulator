@@ -46,6 +46,7 @@ This behavior includes:
 - Sexual behavior
 - Rest
 - Research behavior
+
 In the ideal case, the user will be able to create any animal that they want. However, due to difficulties in visual and animation there are only few animals which reflect different archetypes, such as 
 - Small herbivores (Savannah mini pigs, my fictional species of animal)
 - Big predators (lions)
